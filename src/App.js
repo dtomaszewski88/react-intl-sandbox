@@ -95,7 +95,7 @@ function App() {
       <header className="App-header">
       </header>
         <main>
-            <h1 className="app-title">Translations Demo</h1>
+            <h1 className="app-title"><FormattedMessage id={'Translations demo'} /></h1>
             <Container>
                 <Row>
                     <Col className="buttons">

@@ -31,4 +31,5 @@ export default {
   MESSAGE_SUMMARY_5,
   MESSAGE_SUMMARY_6,
   MESSAGE_SUMMARY_7,
+  'Translations demo': 'Translations demo'
 }
