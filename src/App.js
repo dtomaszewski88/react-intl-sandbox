@@ -77,7 +77,7 @@ const getMessageTranslationData = (messages) => {
 }
 
 function App() {
-  const [state, setState] = React.useState({messages: messagesData, summary: 1, locale: 'pl'});
+  const [state, setState] = React.useState({messages: messagesData, summary: 1, locale: 'en'});
   const {messages, summary, locale} = state;
 
   const setLocale = (locale) => {setState({...state, locale})};
