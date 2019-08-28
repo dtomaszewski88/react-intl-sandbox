@@ -7,7 +7,9 @@ const MESSAGE_SUMMARY_4 = "You have {messageCountType, select, " +
     "{messageCount, plural," +
     "=0 {no new messages} " +
     "one {{messageCount} new message} " +
-    "other {{messageCount} new messages}}} other {{maxMessages}+ new messages}" +
+    "other {{messageCount} new messages}}" +
+    "} " +
+    "other {{maxMessages}+ new messages}" +
     "}";
 const FROM_1 = "from {authorsText}";
 const FROM_2 = "{authorsCount, plural, =0 {} other {from {authorsText}}}";

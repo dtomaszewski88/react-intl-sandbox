@@ -10,10 +10,59 @@
 .message{
   position: relative;
 }
-.from{
+.message-footer{
+  padding: 0.5rem;
+}
+.message-header-center .show-value{
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.message-header-center input{
+  display: inline-block;
+  height: 100%;
+  border: 1px solid #007bff;
+  border-bottom-left-radius: 0.2rem;
+  border-bottom-right-radius: 0.2rem;
+  padding: 0.5rem;
+  font-size: 12px;
+}
+.message-header-center input:focus{
+  outline: none;
+}
+.message-header{
   position: absolute;
-  right: 0.5rem;
-  bottom: 0.5rem;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+}
+.message-header-left{
+
+}
+.message-header-center{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+.message-header-right{
+  text-align: right;
+}
+.message-header > div {
+  flex: 1 1;
+}
+.message-footer{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+}
+.message .alert{
+  padding-bottom: 3rem;
+  padding-top: 3rem;
 }
 .message-summary{
   text-align: center;
