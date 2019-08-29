@@ -2,7 +2,7 @@ import React from 'react';
 import {FormattedMessage, IntlProvider} from "react-intl";
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/css/bootstrap-grid.css'
-import {map, slice, times} from 'lodash'
+import {slice, times} from 'lodash'
 import {
     Container,
     ButtonGroup,
@@ -13,10 +13,10 @@ import {
 import messagesData from './messages'
 import {getMessage, getMessageTranslationData} from './utils/messages.utils'
 
-import MessageListByAuthor from './utils/MessageListByAuthor'
-import MessageListById from './utils/MessageListById'
-import MessageListByIndex from './utils/MessageListByIndex'
-import MessageListByNoKey from './utils/MessageListByNoKey'
+import MessageListByAuthor from './messages/MessageListByAuthor'
+import MessageListById from './messages/MessageListById'
+import MessageListByIndex from './messages/MessageListByIndex'
+import MessageListByNoKey from './messages/MessageListByNoKey'
 
 import enMessages from './translation-keys/en.js'
 import plMessages from './translation-keys/pl.js'
@@ -34,7 +34,7 @@ function App() {
     const deleteMessage = msg => {
         const newMessages = messages.filter(message => message.id !== msg.id);
         setMessages(newMessages)
-    }
+    };
 
     const removeMessageHead = () => {
         const newMessages = slice(messages, 1, messages.length );
@@ -45,16 +45,16 @@ function App() {
         setMessages(newMessages)
     };
     const addMessageHead = () => {
-        const newMessages = [getMessage(), ...messages];
+        const newMessages = [getMessage(messages.length + 1), ...messages];
         setMessages(newMessages)
     };
 
     const addMessageTail = () => {
-        const newMessages = [...messages, getMessage()];
+        const newMessages = [...messages, getMessage(messages.length + 1)];
         setMessages(newMessages)
     };
     const resetWithCount = (count) => {
-        const newMessages = times(count, getMessage);
+        const newMessages = times(count, (num) => getMessage(num + 1));
         setMessages(newMessages)
     };
     const reset = () => {

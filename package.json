@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^4.3.1",
     "bootstrap": "^4.3.1",
+    "classnames": "^2.2.6",
     "lodash": "^4.17.15",
     "lorem-ipsum": "^2.0.3",
     "react": "^16.8.6",

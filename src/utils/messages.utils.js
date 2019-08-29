@@ -28,8 +28,9 @@ const names = [
     'Ava'
 ];
 
-export const getMessage = () => ({
+export const getMessage = (idx) => ({
     id: uuid(),
+    title: `Message ${idx}`,
     from: names[random(0, names.length -1)],
     text: lorem.generateSentences(random(1,5))
 });

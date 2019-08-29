@@ -1,16 +1,12 @@
-
-import React, {createRef} from 'react';
+import React, {createRef, useState} from 'react';
 import {FormattedMessage} from "react-intl";
 import {
     Alert,
     Badge,
     Button, ButtonGroup,
-    InputGroup,
-    Dropdown,
-    DropdownButton,
-    FormControl
 } from 'react-bootstrap';
 import {random} from "lodash";
+import classNames from 'classnames';
 
 const addBadge = (refToElement) => {
     if(!refToElement) return;
@@ -26,29 +22,34 @@ const clearBadges = (refToElement) => {
 };
 
 const Message = ({message, onDeleteMessage}) => {
+    const [selected, setSelected] = useState(false);
     if(!message){
         return null
     }
     const myRef = createRef();
     const inputRef = createRef();
+    const toggleSelected = () => setSelected(!selected);
     const {id} = message;
+    const classes = classNames('message', {selected});
+    const variant = selected ? 'primary' : 'info';
     return (
-        <div className="message" id={id}>
-            <Alert variant="info">
+        <div className={classes} id={id} onClick={toggleSelected}>
+            <Alert variant={variant}>
+                <Alert.Heading>{message.title}</Alert.Heading>
                 {message.text}
             </Alert>
             <div className="message-header">
                 <div className="message-header-left">
-                    <ButtonGroup aria-label="Basic example" className="badge-buttons">
+                    <ButtonGroup aria-label="Basic example" className="badge-buttons"  onClick={evt => evt.stopPropagation()}>
                         <Button className="add-badges" size="sm" onClick={() => addBadge(myRef.current) }>Add badge</Button>
                         <Button className="clear-badges" size="sm" onClick={() => clearBadges(myRef.current) }>Clear</Button>
                     </ButtonGroup>
                 </div>
                 <div className="message-header-center">
-                    <input ref={inputRef}/>
+                    <input ref={inputRef}  onClick={evt => evt.stopPropagation()} />
                 </div>
                 <div className="message-header-right">
-                    <ButtonGroup aria-label="Basic example" className="badge-buttons">
+                    <ButtonGroup aria-label="Basic example" className="badge-buttons"  onClick={evt => evt.stopPropagation()}>
                         <Button variant="danger" className="add-badges" size="sm" onClick={() => onDeleteMessage(message) }>Delete</Button>
                     </ButtonGroup>
                 </div>
